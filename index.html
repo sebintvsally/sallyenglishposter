@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sally English 포스터</title>
+<meta name="robots" content="noindex">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+<style>
+:root{--navy:#16235c;--cobalt:#2f47a3;--rose:#c48a83;--muted:#6d7591;--bg:#f3f6fd;--card:#fff;--hair:#e2e7f3}
+@media (prefers-color-scheme:dark){:root{--navy:#dfe6ff;--cobalt:#8fa4f0;--muted:#9aa3c0;--bg:#0f1530;--card:#18204a;--hair:#28305c}}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Pretendard,system-ui,sans-serif;background:var(--bg);color:var(--navy);padding:32px 16px 60px}
+header{max-width:1100px;margin:0 auto 26px}
+header small{font-size:12px;letter-spacing:3px;color:var(--rose);font-weight:700}
+h1{margin-top:6px;font-size:28px;letter-spacing:-.5px}
+header p{margin-top:6px;color:var(--muted);font-size:14px}
+.grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px}
+.card{background:var(--card);border:1px solid var(--hair);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+.card.final{outline:2px solid var(--cobalt)}
+.card a.img{display:block;aspect-ratio:210/297;background:#fff}
+.card img{width:100%;height:100%;object-fit:cover;display:block}
+.meta{padding:12px 14px 14px}
+.meta b{font-size:16px}
+.meta b em{font-style:normal;font-size:11px;color:#fff;background:var(--cobalt);padding:2px 7px;border-radius:999px;margin-left:6px;vertical-align:2px}
+.meta p{font-size:12.5px;color:var(--muted);margin-top:4px;line-height:1.5}
+.btns{display:flex;gap:8px;margin-top:10px}
+.btns a{flex:1;text-align:center;font-size:13px;font-weight:600;text-decoration:none;padding:8px;border-radius:10px;border:1px solid var(--hair);color:var(--navy)}
+.btns a.pdf{background:var(--cobalt);border-color:var(--cobalt);color:#fff}
+</style></head>
+<body>
+<header><small>SALLY ENGLISH</small><h1>홍보 포스터</h1><p>A4 · 인쇄는 PDF, 공유는 PNG를 쓰세요.</p></header>
+<main class="grid" id="grid"></main>
+<script>
+const items=[
+ [5,'최종 · 책 카드와 성인 영어회화 카드',true],
+ [4,'제목 "1:1 영어 과외 · 그룹 스터디"'],
+ [3,'하단 설명 2단 배치'],
+ [2,'기존 공부방 포스터 참고'],
+ [1,'첫 디자인 "영어는 국어로 자란다"'],
+];
+const g=document.getElementById('grid');
+for(const [n,d,f] of items){
+  const name='포스터'+n, png=encodeURI(name+'.png'), pdf=encodeURI(name+'.pdf');
+  g.insertAdjacentHTML('beforeend',`<article class="card${f?' final':''}">
+   <a class="img" href="${png}"><img src="${png}" alt="${name}" loading="lazy"></a>
+   <div class="meta"><b>${name}${f?'<em>최종</em>':''}</b><p>${d}</p>
+   <div class="btns"><a href="${png}" download>PNG</a><a class="pdf" href="${pdf}">PDF</a></div></div></article>`);
+}
+</script>
+</body></html>
