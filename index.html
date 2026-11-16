@@ -13,6 +13,12 @@ header{max-width:1100px;margin:0 auto 26px}
 header small{font-size:12px;letter-spacing:3px;color:var(--rose);font-weight:700}
 h1{margin-top:6px;font-size:28px;letter-spacing:-.5px}
 header p{margin-top:6px;color:var(--muted);font-size:14px}
+.one{max-width:560px;margin:0 auto}
+.one .img{display:block;border-radius:16px;overflow:hidden;border:1px solid var(--hair);box-shadow:0 12px 30px rgba(22,35,92,.12);background:#fff}
+.one img{width:100%;display:block}
+.one .btns{margin-top:14px}
+.btns a{padding:12px !important;font-size:15px !important}
+header{max-width:560px !important}
 .grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px}
 .card{background:var(--card);border:1px solid var(--hair);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
 .card.final{outline:2px solid var(--cobalt)}
@@ -28,22 +34,8 @@ header p{margin-top:6px;color:var(--muted);font-size:14px}
 </style></head>
 <body>
 <header><small>SALLY ENGLISH</small><h1>홍보 포스터</h1><p>A4 · 인쇄는 PDF, 공유는 PNG를 쓰세요.</p></header>
-<main class="grid" id="grid"></main>
-<script>
-const items=[
- [5,'최종 · 책 카드와 성인 영어회화 카드',true],
- [4,'제목 "1:1 영어 과외 · 그룹 스터디"'],
- [3,'하단 설명 2단 배치'],
- [2,'기존 공부방 포스터 참고'],
- [1,'첫 디자인 "영어는 국어로 자란다"'],
-];
-const g=document.getElementById('grid');
-for(const [n,d,f] of items){
-  const name='포스터'+n, png=encodeURI(name+'.png'), pdf=encodeURI(name+'.pdf');
-  g.insertAdjacentHTML('beforeend',`<article class="card${f?' final':''}">
-   <a class="img" href="${png}"><img src="${png}" alt="${name}" loading="lazy"></a>
-   <div class="meta"><b>${name}${f?'<em>최종</em>':''}</b><p>${d}</p>
-   <div class="btns"><a href="${png}" download>PNG</a><a class="pdf" href="${pdf}">PDF</a></div></div></article>`);
-}
-</script>
+<main class="one">
+  <a class="img" href="%ED%8F%AC%EC%8A%A4%ED%84%B05.png"><img src="%ED%8F%AC%EC%8A%A4%ED%84%B05.png" alt="Sally English 홍보 포스터"></a>
+  <div class="btns"><a href="%ED%8F%AC%EC%8A%A4%ED%84%B05.png" download="sally-english-poster.png">PNG 저장</a><a class="pdf" href="%ED%8F%AC%EC%8A%A4%ED%84%B05.pdf">인쇄용 PDF</a></div>
+</main>
 </body></html>
